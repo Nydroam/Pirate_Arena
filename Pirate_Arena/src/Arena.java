@@ -78,13 +78,15 @@ public class Arena {
 						}
 						else if (choice.equals("2")) {
 							System.out.println("So ye be a " + pirateTypes[1]+"!");
-							Pirate1 = new Duelist(name);
+							Pirate0 = new Duelist(name);
 						}
 						else if (choice.equals("3")) {
 							System.out.println("So ye be a " + pirateTypes[2]+"!");
+							//Pirate0 = new Gunner(name);
 						}
 						else if (choice.equals("4")) {
 							System.out.println("So ye be a " + pirateTypes[3]+"!");
+							//Pirate0 = new Parrot(name);
 						}
 						else {
 							validChoice = false;
@@ -102,6 +104,12 @@ public class Arena {
 						Pirate1 = new Captain();
 					else if(randChar == 1)
 						Pirate1 = new Duelist();
+					/*
+					 * else if(randChar == 2)
+					 *     Pirate1 = new Gunner();
+					 * else
+					 *     Pirate1 = new Parrot();
+					 */
 					System.out.println("Yer opponent be a " + enemy + "! Best of luck to ya!");
 					
 					while(!pvp) {
@@ -183,6 +191,7 @@ public class Arena {
 				else {//multiplayer
 					System.out.println("So ye want to test yer skills against a fellow eh? Well best of luck to the both of ya!");
 					while(pvp) {
+						
 					}
 				}
 	}
