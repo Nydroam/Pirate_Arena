@@ -1,7 +1,7 @@
 import java.util.Random;
 public class Parrot extends Pirate{
 
-  public Gunner() {
+  public Parrot() {
     HP = 1000;
     DEX = 99;
     STR = 50;
@@ -10,7 +10,7 @@ public class Parrot extends Pirate{
     name = "Paco";
   }
 
-  public Gunner(String name) {
+  public Parrot(String name) {
     this();
     this.name = name;
   }
@@ -19,7 +19,7 @@ public class Parrot extends Pirate{
   public void special(Pirate other) {
     System.out.println(name + " Bok. *Tilts head to the side*");
     Random rand = new Random();
-    int extra = rand.nextInt(40) + 15);
+    int extra = rand.nextInt(40) + 15;
     other.takeDmg(STR + extra);
     System.out.println(other.getName() + " took " + (extra + STR) + " damage.");
     displayHP(other);

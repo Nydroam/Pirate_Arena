@@ -19,7 +19,7 @@ public class Gunner extends Pirate{
   public void special(Pirate other) {
     System.out.println(name + " loaded Bullet Bill into the pistol and unleashed.");
     Random rand = new Random();
-    int extra = rand.nextInt(11) + 10);
+    int extra = rand.nextInt(11) + 10;
     other.takeDmg(STR + extra);
     System.out.println(other.getName() + " took " + (STR + extra) + " damage");
     displayHP(other);

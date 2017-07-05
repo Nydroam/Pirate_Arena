@@ -82,11 +82,11 @@ public class Arena {
 						}
 						else if (choice.equals("3")) {
 							System.out.println("So ye be a " + pirateTypes[2]+"!");
-							//Pirate0 = new Gunner(name);
+							Pirate0 = new Gunner(name);
 						}
 						else if (choice.equals("4")) {
 							System.out.println("So ye be a " + pirateTypes[3]+"!");
-							//Pirate0 = new Parrot(name);
+							Pirate0 = new Parrot(name);
 						}
 						else {
 							validChoice = false;
@@ -95,7 +95,7 @@ public class Arena {
 					}
 					
 					//choose randomly between four subclasses
-					int randChar = generator.nextInt(pirateTypes.length-2);
+					int randChar = generator.nextInt(pirateTypes.length);
 					
 					//create new enemy based on randChar here
 					
@@ -104,12 +104,12 @@ public class Arena {
 						Pirate1 = new Captain();
 					else if(randChar == 1)
 						Pirate1 = new Duelist();
-					/*
-					 * else if(randChar == 2)
-					 *     Pirate1 = new Gunner();
-					 * else
-					 *     Pirate1 = new Parrot();
-					 */
+					
+					else if(randChar == 2)
+					     Pirate1 = new Gunner();
+					else
+					      Pirate1 = new Parrot();
+					
 					System.out.println("Yer opponent be a " + enemy + "! Best of luck to ya!");
 					
 					while(!pvp) {

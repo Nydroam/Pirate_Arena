@@ -18,8 +18,9 @@ public class Pirate {
 		int accChance = rand.nextInt(other.getACC());
 		if (accChance >= dexChance) {
 			System.out.println("Take that! " + other.getName() + " took " + STR + " damage.");
-			displayHP(other);
 			other.takeDmg(STR);
+			displayHP(other);
+			
 		}else {
 			System.out.println("Arrrgh! " + name + " missed.");
 		}
