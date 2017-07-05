@@ -5,8 +5,10 @@ public class Arena {
 
 	public static void main(String[] args) {
 			//List of pirates
-			String[] pirateTypes = {"Captain", "Gunner", "Swashbuckler", "Parrot"};
-		
+			String[] pirateTypes = {"Captain", "Gunner", "Duelist", "Parrot"};
+			
+			Pirate Pirate0 = new Pirate();
+			Pirate Pirate1 = new Pirate();
 			//scanner to take in user input
 			Scanner userInput = new Scanner(System.in);
 			Random generator = new Random();
@@ -15,7 +17,7 @@ public class Arena {
 				
 			boolean validChoice = false;
 			boolean pvp = false;
-			String choice;
+			String choice = "0";
 				
 			System.out.println("AHOY MATEYS!");
 			System.out.println("Welcome to the Pirate Arena, where scallywags and scoundrels compete for booty, infamy, and glory!");
@@ -44,21 +46,26 @@ public class Arena {
 				
 				//single player
 				if(!pvp) {
+					System.out.println("Ah, a fresh one has arrived to face the Arena. Good luck... you'll need it...");
+					System.out.println("First, what be yer name?");
+					String name = userInput.nextLine();
 					validChoice = false;
-					System.out.println("First, we gotta figure out what type of pirate ye be.");
+					System.out.println("Now, we gotta figure out what type of pirate ye be.");
 					
 					while(!validChoice) {
-						choice = userInput.nextLine();
+						
 						System.out.println("Soo... what ye be?");
 						
 						for(int i = 0; i < pirateTypes.length - 1; i++) {
 							int j = i+1;
 							System.out.println(j + ". " + pirateTypes[i]);
 						}
+						choice = userInput.nextLine();
 						validChoice = true;
 						//create pirate subclass for player within these if statements
 						if (choice.equals("1")) {
 							System.out.println("So ye be a " + pirateTypes[0]+"!");
+							Pirate0 = new Captain(name);
 						}
 						else if (choice.equals("2")) {
 							System.out.println("So ye be a " + pirateTypes[1]+"!");
@@ -81,6 +88,8 @@ public class Arena {
 					//create new enemy based on randChar here
 					
 					String enemy = pirateTypes[randChar];
+					if(randChar == 1)
+						Pirate1 = new Captain();
 					System.out.println("Yer opponent be a " + enemy + "! Best of luck to ya!");
 					
 					while(!pvp) {
@@ -89,24 +98,69 @@ public class Arena {
 						System.out.println("2. Special");
 						System.out.println("3. Taunt");
 						
-						validChoice = false;
-						while(!validChoice) {
-							choice = userInput.nextLine();
-							if (choice.equals("1")) {
-								//
+						//battle code here
+						if(Pirate0.getSPD()<Pirate1.getSPD()) {
+							int enemyMove = generator.nextInt(3);
+							if(enemyMove == 0) {
+								Pirate1.basicAtk(Pirate0);
 							}
-							else if(choice.equals("2")) {
-								
+							if(enemyMove == 1) {
+								Pirate1.special(Pirate0);
 							}
-							else if(choice.equals("3")) {
-								
+							if(enemyMove == 2) {
+								Pirate1.taunt(Pirate0);	
 							}
-							else {
-								
+							
+							validChoice = false;
+							while(!validChoice) {
+								choice = userInput.nextLine();
+								validChoice = true;
+								if (choice.equals("1")) {
+									
+								}
+								else if(choice.equals("2")) {
+									
+								}
+								else if(choice.equals("3")) {
+									
+								}
+								else {
+									validChoice = false;
+								}
 							}
+							
+						}
+						else {
+							validChoice = false;
+							while(!validChoice) {
+								choice = userInput.nextLine();
+								validChoice = true;
+								if (choice.equals("1")) {
+									
+								}
+								else if(choice.equals("2")) {
+									
+								}
+								else if(choice.equals("3")) {
+									
+								}
+								else {
+									validChoice = false;
+								}
+							}
+							int enemyMove = generator.nextInt(3);
+							if(enemyMove == 0) {
+								Pirate1.basicAtk(Pirate0);
+							}
+							if(enemyMove == 1) {
+								Pirate1.special(Pirate0);
+							}
+							if(enemyMove == 2) {
+								Pirate1.taunt(Pirate0);	
+							}
+							
 						}
 						
-						//battle code here
 						
 					}
 				}

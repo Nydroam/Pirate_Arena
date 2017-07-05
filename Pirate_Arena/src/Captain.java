@@ -16,7 +16,7 @@ public class Captain extends Pirate{
 	}
 	
 	//special move
-	public void bulkUp() {
+	public void special(Pirate other) {
 		STR += 1;
 		DEX += 5;
 		ACC += 5;

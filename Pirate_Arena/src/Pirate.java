@@ -8,6 +8,9 @@ public class Pirate {
 	
 	protected String name;
 	
+	public void special(Pirate other) {
+		
+	}
 	
 	public void basicAtk(Pirate other) {
 		Random rand = new Random();
@@ -80,7 +83,9 @@ public class Pirate {
 			other.setDEX(other.getACC() - amt);
 		}
 	}
-	
+	public void taunt(Pirate other) {
+		
+	}
 	public String toString(){
 		String info = name + "\n\n" 
 					+"HP: " + HP + "\n"
