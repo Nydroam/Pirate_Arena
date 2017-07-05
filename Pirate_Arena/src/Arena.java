@@ -3,9 +3,18 @@ import java.util.Random;
 
 public class Arena {
 
+	public static void checkWin(Pirate first, Pirate second) {
+		if(first.getHP()<=0) {
+			System.out.println(first.getName() + " has been defeated.");
+			System.out.println(second.getName() + " wins!");
+			System.exit(0);
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 			//List of pirates
-			String[] pirateTypes = {"Captain", "Gunner", "Duelist", "Parrot"};
+			String[] pirateTypes = {"Captain", "Duelist", "Gunner", "Parrot"};
 			
 			Pirate Pirate0 = new Pirate();
 			Pirate Pirate1 = new Pirate();
@@ -69,6 +78,7 @@ public class Arena {
 						}
 						else if (choice.equals("2")) {
 							System.out.println("So ye be a " + pirateTypes[1]+"!");
+							Pirate1 = new Duelist(name);
 						}
 						else if (choice.equals("3")) {
 							System.out.println("So ye be a " + pirateTypes[2]+"!");
@@ -83,13 +93,15 @@ public class Arena {
 					}
 					
 					//choose randomly between four subclasses
-					int randChar = generator.nextInt(pirateTypes.length);
+					int randChar = generator.nextInt(pirateTypes.length-2);
 					
 					//create new enemy based on randChar here
 					
 					String enemy = pirateTypes[randChar];
-					if(randChar == 1)
+					if(randChar == 0)
 						Pirate1 = new Captain();
+					else if(randChar == 1)
+						Pirate1 = new Duelist();
 					System.out.println("Yer opponent be a " + enemy + "! Best of luck to ya!");
 					
 					while(!pvp) {
@@ -110,24 +122,25 @@ public class Arena {
 							if(enemyMove == 2) {
 								Pirate1.taunt(Pirate0);	
 							}
-							
+							checkWin(Pirate0,Pirate1);
 							validChoice = false;
 							while(!validChoice) {
 								choice = userInput.nextLine();
 								validChoice = true;
 								if (choice.equals("1")) {
-									
+									Pirate0.basicAtk(Pirate1);
 								}
 								else if(choice.equals("2")) {
-									
+									Pirate0.special(Pirate1);
 								}
 								else if(choice.equals("3")) {
-									
+									Pirate0.taunt(Pirate1);
 								}
 								else {
 									validChoice = false;
 								}
 							}
+							checkWin(Pirate1,Pirate0);
 							
 						}
 						else {
@@ -136,18 +149,19 @@ public class Arena {
 								choice = userInput.nextLine();
 								validChoice = true;
 								if (choice.equals("1")) {
-									
+									Pirate0.basicAtk(Pirate1);
 								}
 								else if(choice.equals("2")) {
-									
+									Pirate0.special(Pirate1);
 								}
 								else if(choice.equals("3")) {
-									
+									Pirate0.taunt(Pirate1);
 								}
 								else {
 									validChoice = false;
 								}
 							}
+							checkWin(Pirate1,Pirate0);
 							int enemyMove = generator.nextInt(3);
 							if(enemyMove == 0) {
 								Pirate1.basicAtk(Pirate0);
@@ -158,8 +172,10 @@ public class Arena {
 							if(enemyMove == 2) {
 								Pirate1.taunt(Pirate0);	
 							}
-							
+							checkWin(Pirate0,Pirate1);
 						}
+						
+						
 						
 						
 					}
