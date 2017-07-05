@@ -113,10 +113,7 @@ public class Arena {
 					System.out.println("Yer opponent be a " + enemy + "! Best of luck to ya!");
 					
 					while(!pvp) {
-						System.out.println("What will you do?");
-						System.out.println("1. Attack");
-						System.out.println("2. Special");
-						System.out.println("3. Taunt");
+						
 						
 						//battle code here
 						if(Pirate0.getSPD()<Pirate1.getSPD()) {
@@ -131,6 +128,10 @@ public class Arena {
 								Pirate1.taunt(Pirate0);	
 							}
 							checkWin(Pirate0,Pirate1);
+							System.out.println("What will you do?");
+							System.out.println("1. Attack");
+							System.out.println("2. Special");
+							System.out.println("3. Taunt");
 							validChoice = false;
 							while(!validChoice) {
 								choice = userInput.nextLine();
@@ -152,6 +153,10 @@ public class Arena {
 							
 						}
 						else {
+							System.out.println("What will you do?");
+							System.out.println("1. Attack");
+							System.out.println("2. Special");
+							System.out.println("3. Taunt");
 							validChoice = false;
 							while(!validChoice) {
 								choice = userInput.nextLine();
