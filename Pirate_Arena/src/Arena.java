@@ -110,7 +110,7 @@ public class Arena {
 					else
 					      Pirate1 = new Parrot();
 					
-					System.out.println("Yer opponent be a " + enemy + "! Best of luck to ya!");
+					System.out.println("Yer opponent be a " + enemy + " - " + Pirate1.getName() + "! Best of luck to ya!");
 					
 					while(!pvp) {
 						

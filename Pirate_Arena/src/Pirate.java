@@ -77,15 +77,23 @@ public class Pirate {
 	public void lowerStat(Pirate other, String stat, int amt) {
 		if (stat.equals("DEX")) {
 			other.setDEX(other.getDEX() - amt);
+			if(other.getDEX()<10)
+				other.setDEX(10);
 
 		}else if (stat.equals("STR")) {
-			other.setDEX(other.getSTR() - amt);
+			other.setSTR(other.getSTR() - amt);
+			if(other.getSTR()<1)
+				other.setSTR(1);
 
 		}else if (stat.equals("SPD")) {
-			other.setDEX(other.getSPD() - amt);
+			other.setSPD(other.getSPD() - amt);
+			if(other.getSPD()<10)
+				other.setSPD(10);
 
 		}else if (stat.equals("ACC")) {
-			other.setDEX(other.getACC() - amt);
+			other.setACC(other.getACC() - amt);
+			if(other.getACC()<10)
+				other.setACC(10);
 		}
 	}
 	public void taunt(Pirate other) {
